@@ -1,6 +1,5 @@
 import EventForm from "@/components/shared/EventForm";
 import { getEventById } from "@/lib/actions/event.actions";
-import { UpdateEventParams } from "@/types";
 import { auth } from "@clerk/nextjs/server";
 
 type UpdateEventProps = {
@@ -15,7 +14,7 @@ const UpdateEvent = async ({ params: { id } }: UpdateEventProps) => {
   const userId = sessionClaims?.userId as string | null;
 
   const event = await getEventById(id);
-  
+
   if (!userId) return redirectToSignIn();
 
   return (
