@@ -144,6 +144,6 @@ export type CreateUserParams = {
   }
   
   export type SearchParamProps = {
-    params: Record<string, string>;
+    params: { id: string };
     searchParams: { [key: string]: string | string[] | undefined };
   };  

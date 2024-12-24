@@ -6,12 +6,12 @@ import Image from "next/image";
 import React from "react";
 
 export type SearchParamProps = {
-  params: Record<string, string>; // Ensures compatibility with Next.js
+  params: { id: string }; // 'params' matches the dynamic route [id]
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
 const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
-  const { id } = params; // Destructure id from params
+  const { id } = params; // Extract 'id' from params
 
   const event = await getEventById(id);
   const relatedEvents = await getRelatedEventsByCategory({
